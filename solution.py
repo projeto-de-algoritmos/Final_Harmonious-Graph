@@ -1,48 +1,28 @@
-from collections import defaultdict
-import threading, sys
+n, m = map(int, input().split())
+graph = [list() for i in range(n+1)]
+visited = [False for i in range(n+1)]
 
-sys.setrecursionlimit(10**8)
-
-visited = [False] * 200010
-graph = defaultdict(set)
-
-
-def read():
-    return sys.stdin.readline().split()
+for i in range(m):
+    u, v = map(int, input().split())
+    graph[v].append(u)
+    graph[u].append(v)
  
-def dfs(start):
-    visited[start] = True
-    ret = start
-    for v in graph[start]:
-        if not visited[v]:
-            ret = max(dfs(v), ret)
-    return ret
- 
-def main():
-    n, m = map(int, read())
+ans = 0
+count = m = 1
+stack = [count]
 
-    for _ in range(m):
-        u, v = map(int, read())
-        u, v = u-1, v-1
-
-        graph[u].add(v)
-        graph[v].add(u)
-
-    max_r = 0
-    ans = 0
-    for l in range(n):
-        if not visited[l]:
-            r = dfs(l)
-            if l < max_r:
-                ans += 1
-            max_r = max(r, max_r)
- 
-    print(ans)
- 
- 
-if __name__ == "__main__":
-    threading.stack_size(1024 * 100000)
-
-    thread = threading.Thread(target=main)
-    thread.start()
-    thread.join()
+while count <= n:
+    while (len(stack) > 0):
+        v = stack.pop()
+        visited[v] = True
+        m = max(v, m)
+        for e in graph[v]:
+            if not visited[e]:
+                stack.append(e)
+                visited[e] = True
+    while count <= n and visited[count]:
+        count += 1
+    if count <= m:
+        ans += 1
+    stack.append(count)
+print(ans)

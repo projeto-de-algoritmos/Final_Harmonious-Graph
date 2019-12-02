@@ -12,7 +12,7 @@
 
 ## Sobre 
 
-Nessa atividade será resolvido um problema de um *contest* do Codedorces, o [1253D - Harmonious Graph](https://codeforces.com/problemset/problem/1253/D) que, dado um grafo, procura saber quantas arestas faltam pra ele ser considerado um grafo harmonioso. Para solucionar o problema foi utilizado DFS e estratégia ambiciosa. A solução utilizada aqui foi submetida e aprovada no Codeforces e pode ser visualizada [aqui](https://codeforces.com/contest/1253/submission/66189037)
+Nessa atividade será resolvido um problema de um *contest* do Codedorces, o [1253D - Harmonious Graph](https://codeforces.com/problemset/problem/1253/D) que, dado um grafo, procura saber quantas arestas faltam pra ele ser considerado um grafo harmonioso. Para solucionar o problema foi utilizado DFS e estratégia ambiciosa. A solução utilizada aqui foi submetida e aprovada no Codeforces e pode ser visualizada [aqui](https://codeforces.com/contest/1253/submission/66190775)
 
 ## Instalação 
 
